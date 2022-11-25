@@ -69,6 +69,23 @@ The provided weights are trained as per rule of NTIRE21 HDR challange (single fr
 Here,**-s** specifies the root directory of the source images
  (i.e., testingImages/), and **-d** specifies the destination root (i.e., modelOutput/).
 
+### Testing (on external images, for cuda-10.1)
+
+Installation
+```
+conda create -n TwoStageHDR python=3.8.0
+conda activate TwoStageHDR
+conda install pytorch==1.5.1 torchvision==0.6.1 cudatoolkit=10.1 -c pytorch
+pip3 install opencv-python etaprogress torchsummary ptflops matplotlib scikit-image scikit-learn colorama tensorboard imgaug
+```
+
+Running
+```
+export LD_LIBRARY_PATH=/data2/shaun/cuda-10.1/lib64/:$LD_LIBRARY_PATH
+export CUDA_VISIBLE_DEVICES=3
+python3 two_stage_demo.py --input_dir path_to_input_folder --output_dir path_to_output_folder
+```
+
 # LDR52 Dataset
 We have collected a LDR dataset captured with different camera hardwares. Feel free to use our LDR dataset in your respective work. The dataset can be downloaded from the following link: **[[Click Here](https://drive.google.com/drive/u/1/folders/1vX4rM_953pAk83vNeWheiOiLzlnysZe9)]**
 # Contact
